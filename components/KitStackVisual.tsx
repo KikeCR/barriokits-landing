@@ -5,21 +5,21 @@ const tiles = [
     label: "Code",
     file: "app/starter.config.ts",
     icon: Code,
-    base: "translate-x-0 translate-y-0 rotate-[-3deg]",
+    base: "sm:rotate-[-3deg]",
     hover: "sm:group-hover:translate-x-0 sm:group-hover:translate-y-0 sm:group-hover:rotate-[-4deg]",
   },
   {
     label: "Notion",
     file: "roadmap.notion",
     icon: SquaresFour,
-    base: "translate-x-6 translate-y-10 rotate-[2deg]",
+    base: "sm:translate-x-6 sm:translate-y-10 sm:rotate-[2deg]",
     hover: "sm:group-hover:translate-x-6 sm:group-hover:translate-y-[104px] sm:group-hover:rotate-[2deg]",
   },
   {
     label: "Canva",
     file: "brand-kit.canva",
     icon: PaintBrush,
-    base: "-translate-x-2 translate-y-20 rotate-[-1deg]",
+    base: "sm:-translate-x-2 sm:translate-y-20 sm:rotate-[-1deg]",
     hover: "sm:group-hover:-translate-x-2 sm:group-hover:translate-y-[204px] sm:group-hover:rotate-[-1deg]",
   },
 ] as const;
@@ -27,13 +27,13 @@ const tiles = [
 export function KitStackVisual() {
   return (
     <div
-      className="group relative mx-auto h-[220px] w-full max-w-sm sm:h-[360px]"
+      className="group mx-auto flex w-full max-w-sm flex-col gap-3 sm:relative sm:block sm:h-[360px]"
       aria-hidden="true"
     >
       {tiles.map(({ label, file, icon: Icon, base, hover }, index) => (
         <div
           key={label}
-          className={`absolute inset-x-4 top-0 rounded-2xl border border-border bg-surface p-5 shadow-[0_1px_0_rgba(0,0,0,0.02)] transition-transform duration-300 ease-out ${base} ${hover}`}
+          className={`w-full rounded-2xl border border-border bg-surface p-5 shadow-[0_1px_0_rgba(0,0,0,0.02)] transition-transform duration-300 ease-out sm:absolute sm:inset-x-4 sm:top-0 ${base} ${hover}`}
           style={{ zIndex: tiles.length - index }}
         >
           <div className="flex items-center gap-3">

@@ -26,7 +26,9 @@ export function Logo({ showWordmark = true, className }: LogoProps) {
         </svg>
       </span>
       {showWordmark ? (
-        <span className="text-[15px] font-semibold tracking-tight text-text">Barrio Kits</span>
+        <span className="font-display text-[16px] font-bold tracking-tight text-text">
+          Barrio Kits
+        </span>
       ) : null}
     </span>
   );

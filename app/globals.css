@@ -2,35 +2,37 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --canvas: #fafafa;
+  --canvas: #faf9f7;
   --surface: #ffffff;
-  --surface-muted: #f4f4f5;
-  --border: #e4e4e7;
-  --border-strong: #d4d4d8;
-  --text: #18181b;
-  --text-muted: #52525b;
-  --text-faint: #71717a;
-  --accent: #c2410c;
-  --accent-strong: #c2410c;
+  --surface-muted: #f1ede7;
+  --border: #e5ded4;
+  --border-strong: #d3c9bb;
+  --text: #1c1712;
+  --text-muted: #6b6155;
+  --text-faint: #8c8172;
+  --accent: #b23a20;
+  --accent-strong: #b23a20;
   --accent-fg: #ffffff;
-  --accent-soft: rgb(194 65 12 / 0.08);
-  --accent-soft-border: rgb(194 65 12 / 0.18);
+  --accent-soft: rgb(178 58 32 / 0.08);
+  --accent-soft-border: rgb(178 58 32 / 0.2);
+  --glow: rgb(178 58 32 / 0.14);
 }
 
 .dark {
-  --canvas: #09090b;
-  --surface: #18181b;
-  --surface-muted: #27272a;
-  --border: #27272a;
-  --border-strong: #3f3f46;
-  --text: #f4f4f4;
-  --text-muted: #a1a1aa;
-  --text-faint: #71717a;
-  --accent: #fb923c;
-  --accent-strong: #c2410c;
+  --canvas: #161310;
+  --surface: #211c17;
+  --surface-muted: #2c251e;
+  --border: #332c24;
+  --border-strong: #473d31;
+  --text: #f5f1ec;
+  --text-muted: #b8ada0;
+  --text-faint: #8c8172;
+  --accent: #ff7a52;
+  --accent-strong: #b23a20;
   --accent-fg: #ffffff;
-  --accent-soft: rgb(251 146 60 / 0.1);
-  --accent-soft-border: rgb(251 146 60 / 0.22);
+  --accent-soft: rgb(255 122 82 / 0.12);
+  --accent-soft-border: rgb(255 122 82 / 0.26);
+  --glow: rgb(255 122 82 / 0.16);
 }
 
 @theme inline {
@@ -47,9 +49,11 @@
   --color-accent-fg: var(--accent-fg);
   --color-accent-soft: var(--accent-soft);
   --color-accent-soft-border: var(--accent-soft-border);
+  --color-glow: var(--glow);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-outfit);
+  --font-sans: var(--font-work-sans);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 @layer base {
@@ -72,17 +76,31 @@
 }
 
 @layer utilities {
-  .bg-grid {
-    background-image:
-      linear-gradient(to right, var(--color-border) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
-    background-size: 44px 44px;
+  .bg-woven {
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--color-border) 0,
+        var(--color-border) 1px,
+        transparent 1px,
+        transparent 26px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        var(--color-border) 0,
+        var(--color-border) 1px,
+        transparent 1px,
+        transparent 26px
+      );
+  }
+
+  .bg-glow {
+    background-image: radial-gradient(circle, var(--color-glow), transparent 70%);
   }
 }
 
 @layer components {
   .legal-content h2 {
-    @apply mt-10 text-xl font-semibold tracking-tight text-text first:mt-0;
+    @apply mt-10 font-display text-xl font-semibold tracking-tight text-text first:mt-0;
   }
 
   .legal-content p {

@@ -19,10 +19,11 @@ export function ProductCard({ product, className }: ProductCardProps) {
   return (
     <article
       className={cn(
-        "flex h-full flex-col justify-between rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-border-strong sm:p-7",
+        "relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-border-strong sm:p-7",
         className,
       )}
     >
+      <span className="absolute inset-x-0 top-0 h-[3px] bg-accent-strong" aria-hidden="true" />
       <div>
         <div className="flex items-start justify-between gap-4">
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-accent-soft-border bg-accent-soft text-accent">
@@ -32,7 +33,12 @@ export function ProductCard({ product, className }: ProductCardProps) {
             Coming soon
           </span>
         </div>
-        <h3 className={cn("mt-6 font-semibold tracking-tight", product.featured ? "text-2xl" : "text-xl")}>
+        <h3
+          className={cn(
+            "mt-6 font-display font-bold tracking-tight",
+            product.featured ? "text-2xl" : "text-xl",
+          )}
+        >
           {product.name}
         </h3>
         <p className="mt-2.5 text-sm leading-relaxed text-text-muted">{product.description}</p>

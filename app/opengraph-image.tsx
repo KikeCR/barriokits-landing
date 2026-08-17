@@ -17,10 +17,9 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          backgroundColor: "#09090b",
+          backgroundColor: "#161310",
           backgroundImage:
-            "linear-gradient(to right, #18181b 1px, transparent 1px), linear-gradient(to bottom, #18181b 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
+            "radial-gradient(circle at 12% 8%, rgba(255,122,82,0.16), transparent 42%), repeating-linear-gradient(45deg, #2c251e 0, #2c251e 1px, transparent 1px, transparent 26px)",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
@@ -32,7 +31,7 @@ export default async function Image() {
               width: "72px",
               height: "72px",
               borderRadius: "20px",
-              backgroundColor: "#c2410c",
+              backgroundColor: "#b23a20",
             }}
           >
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
@@ -41,7 +40,7 @@ export default async function Image() {
               <rect x="10.4" y="10.4" width="3.2" height="3.2" rx="0.6" fill="#ffffff" />
             </svg>
           </div>
-          <div style={{ display: "flex", fontSize: "56px", fontWeight: 700, color: "#f4f4f4" }}>
+          <div style={{ display: "flex", fontSize: "56px", fontWeight: 700, color: "#f5f1ec" }}>
             Barrio Kits
           </div>
         </div>
@@ -50,7 +49,7 @@ export default async function Image() {
             display: "flex",
             marginTop: "36px",
             fontSize: "32px",
-            color: "#a1a1aa",
+            color: "#b8ada0",
             maxWidth: "900px",
           }}
         >

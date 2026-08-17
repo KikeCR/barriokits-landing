@@ -10,7 +10,7 @@ export function Products() {
     <section id="products" className="border-t border-border">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
         <Reveal>
-          <h2 className="text-3xl font-semibold tracking-tight text-text sm:text-4xl">
+          <h2 className="font-display text-3xl font-bold tracking-tight text-text sm:text-4xl">
             Three ways to skip the setup.
           </h2>
           <p className="mt-4 max-w-[60ch] text-text-muted">

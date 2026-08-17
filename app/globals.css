@@ -1,0 +1,107 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --canvas: #fafafa;
+  --surface: #ffffff;
+  --surface-muted: #f4f4f5;
+  --border: #e4e4e7;
+  --border-strong: #d4d4d8;
+  --text: #18181b;
+  --text-muted: #52525b;
+  --text-faint: #71717a;
+  --accent: #c2410c;
+  --accent-strong: #c2410c;
+  --accent-fg: #ffffff;
+  --accent-soft: rgb(194 65 12 / 0.08);
+  --accent-soft-border: rgb(194 65 12 / 0.18);
+}
+
+.dark {
+  --canvas: #09090b;
+  --surface: #18181b;
+  --surface-muted: #27272a;
+  --border: #27272a;
+  --border-strong: #3f3f46;
+  --text: #f4f4f4;
+  --text-muted: #a1a1aa;
+  --text-faint: #71717a;
+  --accent: #fb923c;
+  --accent-strong: #c2410c;
+  --accent-fg: #ffffff;
+  --accent-soft: rgb(251 146 60 / 0.1);
+  --accent-soft-border: rgb(251 146 60 / 0.22);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-soft-border: var(--accent-soft-border);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-text);
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+}
+
+@layer components {
+  .legal-content h2 {
+    @apply mt-10 text-xl font-semibold tracking-tight text-text first:mt-0;
+  }
+
+  .legal-content p {
+    @apply mt-4 leading-relaxed text-text-muted;
+  }
+
+  .legal-content ul {
+    @apply mt-4 list-disc space-y-2 pl-5 text-text-muted;
+  }
+
+  .legal-content li {
+    @apply leading-relaxed;
+  }
+
+  .legal-content a {
+    @apply text-accent underline underline-offset-4;
+  }
+
+  .legal-content strong {
+    @apply font-semibold text-text;
+  }
+}

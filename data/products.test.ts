@@ -19,6 +19,21 @@ describe("products data", () => {
       for (const highlight of product.highlights ?? []) {
         expect(highlight).not.toMatch(/[–—]/);
       }
+      for (const demo of product.demos ?? []) {
+        expect(demo.label).not.toMatch(/[–—]/);
+        expect(demo.description).not.toMatch(/[–—]/);
+      }
+    }
+  });
+
+  it("has valid https URLs for every demo and buy link", () => {
+    for (const product of products) {
+      for (const demo of product.demos ?? []) {
+        expect(demo.url).toMatch(/^https:\/\//);
+        if (demo.buyUrl) {
+          expect(demo.buyUrl).toMatch(/^https:\/\//);
+        }
+      }
     }
   });
 });

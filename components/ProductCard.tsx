@@ -15,6 +15,8 @@ interface ProductCardProps {
 
 export function ProductCard({ product, className }: ProductCardProps) {
   const Icon = icons[product.icon];
+  const hasFooter = Boolean(product.highlights?.length || product.demos?.length);
+  const isAvailable = Boolean(product.demos?.some((demo) => demo.buyUrl));
 
   return (
     <article
@@ -30,7 +32,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
             <Icon size={20} weight="bold" />
           </span>
           <span className="shrink-0 rounded-full border border-border-strong px-3 py-1 text-xs font-medium text-text-muted">
-            Coming soon
+            {isAvailable ? "Available now" : "Coming soon"}
           </span>
         </div>
         <h3
@@ -44,15 +46,57 @@ export function ProductCard({ product, className }: ProductCardProps) {
         <p className="mt-2.5 text-sm leading-relaxed text-text-muted">{product.description}</p>
       </div>
 
-      {product.highlights ? (
-        <ul className="mt-6 space-y-2.5 border-t border-border pt-5">
-          {product.highlights.map((highlight) => (
-            <li key={highlight} className="flex items-start gap-2.5 text-sm text-text-muted">
-              <Check size={16} weight="bold" className="mt-0.5 shrink-0 text-accent" />
-              <span>{highlight}</span>
-            </li>
-          ))}
-        </ul>
+      {hasFooter ? (
+        <div className="mt-6 border-t border-border pt-5">
+          {product.highlights ? (
+            <ul className="space-y-2.5" aria-label="Highlights">
+              {product.highlights.map((highlight) => (
+                <li key={highlight} className="flex items-start gap-2.5 text-sm text-text-muted">
+                  <Check size={16} weight="bold" className="mt-0.5 shrink-0 text-accent" />
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+
+          {product.demos?.length ? (
+            <ul
+              className={cn("space-y-3", product.highlights ? "mt-5" : "")}
+              aria-label="Available demos"
+            >
+              {product.demos.map((demo) => (
+                <li
+                  key={demo.url}
+                  className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2"
+                >
+                  <span className="text-sm font-medium text-text">{demo.label}</span>
+                  <span className="flex shrink-0 items-center gap-2">
+                    <a
+                      href={demo.url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      aria-label={`View live demo of ${demo.label}`}
+                      className="rounded-full border border-border-strong px-3 py-1 text-xs font-medium text-text-muted transition-colors hover:border-accent-soft-border hover:text-accent"
+                    >
+                      Demo
+                    </a>
+                    {demo.buyUrl ? (
+                      <a
+                        href={demo.buyUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        aria-label={`Buy ${demo.label}`}
+                        className="inline-flex items-center rounded-full bg-accent-strong px-3 py-1 text-xs font-semibold text-accent-fg transition-transform hover:-translate-y-0.5 active:translate-y-0"
+                      >
+                        Buy
+                      </a>
+                    ) : null}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
       ) : null}
     </article>
   );

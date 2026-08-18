@@ -2,12 +2,21 @@ import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
 import { products } from "@/data/products";
 import { siteConfig } from "@/data/site";
+import { softwareSourceCodeJsonLd } from "@/lib/structured-data";
 
 export function Products() {
   const [featured, ...rest] = products;
+  const demoJsonLd = featured.demos?.map((demo) => softwareSourceCodeJsonLd(featured, demo)) ?? [];
 
   return (
     <section id="products" className="border-t border-border">
+      {demoJsonLd.map((entry) => (
+        <script
+          key={entry.url}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(entry) }}
+        />
+      ))}
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
         <Reveal>
           <h2 className="font-display text-3xl font-bold tracking-tight text-text sm:text-4xl">
@@ -31,7 +40,7 @@ export function Products() {
         </div>
 
         <p className="mt-10 text-center text-sm text-text-muted">
-          Want to know the moment a kit ships?{" "}
+          Want to know when the Notion and Canva kits ship?{" "}
           <a
             href={`mailto:${siteConfig.contactEmail}`}
             className="font-medium text-accent underline underline-offset-4"

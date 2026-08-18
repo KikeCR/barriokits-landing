@@ -9,6 +9,9 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: `Terms of service for ${siteConfig.name}, covering licensing, payments, and refunds for digital products.`,
+  alternates: {
+    canonical: `${siteConfig.url}/terms`,
+  },
 };
 
 export default function TermsPage() {

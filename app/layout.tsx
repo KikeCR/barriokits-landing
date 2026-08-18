@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { siteConfig } from "@/data/site";
+import { siteJsonLdGraph } from "@/lib/structured-data";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -34,6 +35,9 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  alternates: {
+    canonical: siteConfig.url,
+  },
   keywords: [
     "developer boilerplate starters",
     "code templates for developers",
@@ -70,6 +74,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <body className="font-sans antialiased" suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLdGraph()) }}
+        />
         <ThemeProvider>
           <Nav />
           <main>{children}</main>

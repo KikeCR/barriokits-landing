@@ -1,4 +1,10 @@
-import { Check, Code, PaintBrush, SquaresFour } from "@phosphor-icons/react/dist/ssr";
+import {
+  ArrowUpRight,
+  Check,
+  Code,
+  PaintBrush,
+  SquaresFour,
+} from "@phosphor-icons/react/dist/ssr";
 import type { Product } from "@/data/products";
 import { cn } from "@/lib/cn";
 
@@ -61,37 +67,43 @@ export function ProductCard({ product, className }: ProductCardProps) {
 
           {product.demos?.length ? (
             <ul
-              className={cn("space-y-3", product.highlights ? "mt-5" : "")}
+              className={cn(
+                "divide-y divide-border",
+                product.highlights ? "mt-5 border-t border-border" : "",
+              )}
               aria-label="Available demos"
             >
               {product.demos.map((demo) => (
                 <li
                   key={demo.url}
-                  className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2"
+                  className={cn("py-4 last:pb-0", product.highlights ? "" : "first:pt-0")}
                 >
-                  <span className="text-sm font-medium text-text">{demo.label}</span>
-                  <span className="flex shrink-0 items-center gap-2">
-                    <a
-                      href={demo.url}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      aria-label={`View live demo of ${demo.label}`}
-                      className="rounded-full border border-border-strong px-3 py-1 text-xs font-medium text-text-muted transition-colors hover:border-accent-soft-border hover:text-accent"
-                    >
-                      Demo
-                    </a>
+                  <p className="font-display text-base font-semibold tracking-tight text-text">
+                    {demo.label}
+                  </p>
+                  <div className="mt-3 flex items-center gap-4">
                     {demo.buyUrl ? (
                       <a
                         href={demo.buyUrl}
                         target="_blank"
                         rel="noreferrer noopener"
                         aria-label={`Buy ${demo.label}`}
-                        className="inline-flex items-center rounded-full bg-accent-strong px-3 py-1 text-xs font-semibold text-accent-fg transition-transform hover:-translate-y-0.5 active:translate-y-0"
+                        className="inline-flex h-11 items-center justify-center rounded-full bg-accent-strong px-5 text-sm font-semibold text-accent-fg transition-transform hover:-translate-y-0.5 active:translate-y-0"
                       >
                         Buy
                       </a>
                     ) : null}
-                  </span>
+                    <a
+                      href={demo.url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      aria-label={`View live demo of ${demo.label}`}
+                      className="inline-flex items-center gap-1 text-sm font-medium text-text-muted transition-colors hover:text-accent"
+                    >
+                      View demo
+                      <ArrowUpRight size={13} weight="bold" />
+                    </a>
+                  </div>
                 </li>
               ))}
             </ul>

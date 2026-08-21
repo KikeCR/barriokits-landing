@@ -82,7 +82,7 @@ export const products: Product[] = [
         label: "Meal Planner & Grocery List",
         description:
           "A Notion system for planning weekly meals and generating a matching grocery list.",
-        url: "https://app.notion.com/p/barriokits/Meal-Planner-Grocery-List-3c2a3568f0148110914df6d7ba97b483",
+        url: "https://barriokits.notion.site/Meal-Planner-Grocery-List-3c2a3568f0148110914df6d7ba97b483",
       },
       {
         label: "Freelance Client & Invoice Tracker",

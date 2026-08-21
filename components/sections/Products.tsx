@@ -28,19 +28,21 @@ export function Products() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-3 lg:grid-rows-2">
-          <Reveal className="lg:col-span-2 lg:row-span-2">
-            <ProductCard product={featured} className="h-full" />
+        <div className="mt-12 space-y-5">
+          <Reveal>
+            <ProductCard product={featured} />
           </Reveal>
-          {rest.map((product, index) => (
-            <Reveal key={product.slug} delay={0.05 * (index + 1)}>
-              <ProductCard product={product} className="h-full" />
-            </Reveal>
-          ))}
+          <div className="grid gap-5 sm:grid-cols-2">
+            {rest.map((product, index) => (
+              <Reveal key={product.slug} delay={0.05 * (index + 1)}>
+                <ProductCard product={product} />
+              </Reveal>
+            ))}
+          </div>
         </div>
 
         <p className="mt-10 text-center text-sm text-text-muted">
-          Want to know when the Notion and Canva kits ship?{" "}
+          Want to know when the Canva kits ship?{" "}
           <a
             href={`mailto:${siteConfig.contactEmail}`}
             className="font-medium text-accent underline underline-offset-4"

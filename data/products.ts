@@ -60,6 +60,37 @@ export const products: Product[] = [
     description:
       "Structured Notion systems for project planning, content calendars, and client management. Duplicate the workspace and make it yours.",
     icon: "kanban",
+    demos: [
+      {
+        label: "Trip Planner",
+        description:
+          "A Notion system for planning trips, itineraries, packing lists, and travel budgets.",
+        url: "https://barriokits.notion.site/Trip-Planner-2aba3568f01480389f9bc93ca6cfdd89",
+      },
+      {
+        label: "Monthly Expense & Income Tracker",
+        description:
+          "A Notion tracker for logging monthly income and expenses, with categories and running totals.",
+        url: "https://barriokits.notion.site/Monthly-Expense-Income-Tracker-3c2a3568f01481059de4d29ef53065c3",
+      },
+      {
+        label: "Job Search Tracker",
+        description: "A Notion board for tracking job applications, interview stages, and follow ups.",
+        url: "https://barriokits.notion.site/Job-Search-Tracker-3c2a3568f01481819169c6557f6f892e",
+      },
+      {
+        label: "Meal Planner & Grocery List",
+        description:
+          "A Notion system for planning weekly meals and generating a matching grocery list.",
+        url: "https://app.notion.com/p/barriokits/Meal-Planner-Grocery-List-3c2a3568f0148110914df6d7ba97b483",
+      },
+      {
+        label: "Freelance Client & Invoice Tracker",
+        description:
+          "A Notion system for tracking freelance clients, active projects, and invoice status.",
+        url: "https://barriokits.notion.site/Freelance-Client-Invoice-Tracker-3c2a3568f014818a9b55c2bd877f1473",
+      },
+    ],
   },
   {
     slug: "canva-templates",
@@ -67,5 +98,10 @@ export const products: Product[] = [
     description:
       "Branded social posts, pitch decks, and marketing kits built in Canva. Swap the colors and copy, keep the layout.",
     icon: "palette",
+    highlights: [
+      "Editable directly in Canva, no other software needed",
+      "Consistent branding across every asset in the kit",
+      "Swap colors, fonts, and copy in minutes",
+    ],
   },
 ];

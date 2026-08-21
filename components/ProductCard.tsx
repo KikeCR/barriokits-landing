@@ -49,7 +49,9 @@ export function ProductCard({ product, className }: ProductCardProps) {
         >
           {product.name}
         </h3>
-        <p className="mt-2.5 text-sm leading-relaxed text-text-muted">{product.description}</p>
+        <p className="mt-2.5 max-w-[60ch] text-sm leading-relaxed text-text-muted">
+          {product.description}
+        </p>
       </div>
 
       {hasFooter ? (
@@ -78,32 +80,50 @@ export function ProductCard({ product, className }: ProductCardProps) {
                   key={demo.url}
                   className={cn("py-4 last:pb-0", product.highlights ? "" : "first:pt-0")}
                 >
-                  <p className="font-display text-base font-semibold tracking-tight text-text">
-                    {demo.label}
-                  </p>
-                  <div className="mt-3 flex items-center gap-4">
-                    {demo.buyUrl ? (
+                  {demo.buyUrl ? (
+                    <>
+                      <p className="font-display text-base font-semibold tracking-tight text-text">
+                        {demo.label}
+                      </p>
+                      <div className="mt-3 flex items-center gap-4">
+                        <a
+                          href={demo.buyUrl}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          aria-label={`Buy ${demo.label}`}
+                          className="inline-flex h-11 items-center justify-center rounded-full bg-accent-strong px-5 text-sm font-semibold text-accent-fg transition-transform hover:-translate-y-0.5 active:translate-y-0"
+                        >
+                          Buy
+                        </a>
+                        <a
+                          href={demo.url}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          aria-label={`View live demo of ${demo.label}`}
+                          className="inline-flex items-center gap-1 text-sm font-medium text-text-muted transition-colors hover:text-accent"
+                        >
+                          View demo
+                          <ArrowUpRight size={13} weight="bold" />
+                        </a>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                      <p className="font-display text-base font-semibold tracking-tight text-text">
+                        {demo.label}
+                      </p>
                       <a
-                        href={demo.buyUrl}
+                        href={demo.url}
                         target="_blank"
                         rel="noreferrer noopener"
-                        aria-label={`Buy ${demo.label}`}
-                        className="inline-flex h-11 items-center justify-center rounded-full bg-accent-strong px-5 text-sm font-semibold text-accent-fg transition-transform hover:-translate-y-0.5 active:translate-y-0"
+                        aria-label={`View live demo of ${demo.label}`}
+                        className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-text-muted transition-colors hover:text-accent"
                       >
-                        Buy
+                        View demo
+                        <ArrowUpRight size={13} weight="bold" />
                       </a>
-                    ) : null}
-                    <a
-                      href={demo.url}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      aria-label={`View live demo of ${demo.label}`}
-                      className="inline-flex items-center gap-1 text-sm font-medium text-text-muted transition-colors hover:text-accent"
-                    >
-                      View demo
-                      <ArrowUpRight size={13} weight="bold" />
-                    </a>
-                  </div>
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>

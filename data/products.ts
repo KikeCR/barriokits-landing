@@ -90,6 +90,12 @@ export const products: Product[] = [
           "A Notion system for tracking freelance clients, active projects, and invoice status.",
         url: "https://barriokits.notion.site/Freelance-Client-Invoice-Tracker-3c2a3568f014818a9b55c2bd877f1473",
       },
+      {
+        label: "Freelancer CRM",
+        description:
+          "A Notion system for managing leads, contacts, and deals across the freelance client pipeline.",
+        url: "https://barriokits.notion.site/Freelancer-CRM-3c6a3568f014811e8467c5cd89a80a21",
+      },
     ],
   },
   {

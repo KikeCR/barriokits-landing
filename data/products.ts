@@ -96,6 +96,13 @@ export const products: Product[] = [
           "A Notion system for managing leads, contacts, and deals across the freelance client pipeline.",
         url: "https://barriokits.notion.site/Freelancer-CRM-3c6a3568f014811e8467c5cd89a80a21",
       },
+      {
+        label: "Home Admin",
+        description:
+          "A Notion system for homeowners for home inventory, maintenances, warranty tracking, future plans and projects.",
+        url: "https://barriokits.notion.site/Home-Admin-3c6a3568f01481d39fd7c4ddf1e901d5",
+      },
+
     ],
   },
   {

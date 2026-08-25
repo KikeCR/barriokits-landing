@@ -102,7 +102,12 @@ export const products: Product[] = [
           "A Notion system for homeowners for home inventory, maintenances, warranty tracking, future plans and projects.",
         url: "https://barriokits.notion.site/Home-Admin-3c6a3568f01481d39fd7c4ddf1e901d5",
       },
-
+      {
+        label: "Photographer Tracker",
+        description:
+          "A Notion system for photographers to track clients, shoots, deliverables, and payment status.",
+        url: "https://barriokits.notion.site/Photographer-Tracker-3c7a3568f0148108b10df920eb8e7f7f",
+      },
     ],
   },
   {

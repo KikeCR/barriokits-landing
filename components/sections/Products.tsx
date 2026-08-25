@@ -1,11 +1,13 @@
-import { ProductCard } from "@/components/ProductCard";
+import { ProductCard, ProductTeaser } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
 import { products } from "@/data/products";
 import { siteConfig } from "@/data/site";
 import { softwareSourceCodeJsonLd } from "@/lib/structured-data";
 
 export function Products() {
-  const [featured, ...rest] = products;
+  const featured = products.find((product) => product.featured)!;
+  const notionTemplates = products.find((product) => product.slug === "notion-templates")!;
+  const canvaTemplates = products.find((product) => product.slug === "canva-templates")!;
   const demoJsonLd = featured.demos?.map((demo) => softwareSourceCodeJsonLd(featured, demo)) ?? [];
 
   return (
@@ -32,13 +34,12 @@ export function Products() {
           <Reveal>
             <ProductCard product={featured} />
           </Reveal>
-          <div className="grid gap-5 sm:grid-cols-2">
-            {rest.map((product, index) => (
-              <Reveal key={product.slug} delay={0.05 * (index + 1)}>
-                <ProductCard product={product} />
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={0.05}>
+            <ProductCard product={notionTemplates} />
+          </Reveal>
+          <Reveal delay={0.1}>
+            <ProductTeaser product={canvaTemplates} />
+          </Reveal>
         </div>
 
         <p className="mt-10 text-center text-sm text-text-muted">

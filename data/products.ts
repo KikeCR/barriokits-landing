@@ -108,6 +108,12 @@ export const products: Product[] = [
           "A Notion system for photographers to track clients, shoots, deliverables, and payment status.",
         url: "https://barriokits.notion.site/Photographer-Tracker-3c7a3568f0148108b10df920eb8e7f7f",
       },
+      {
+        label: "Real Estate CRM & Showings Tracker",
+        description:
+          "A Notion system for real estate agents to track leads, listings, showings, and deal status.",
+        url: "https://barriokits.notion.site/Real-Estate-CRM-Showings-Tracker-3c8a3568f0148137b5bfc4bb396074cf",
+      },
     ],
   },
   {
